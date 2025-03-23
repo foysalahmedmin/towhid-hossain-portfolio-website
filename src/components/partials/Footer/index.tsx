@@ -5,7 +5,7 @@ const Footer = () => {
 
   return (
     <footer className="mt-24 snap-start border-t border-gray-100 py-12">
-      <div className="container-custom">
+      <div className="container">
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="mb-6 md:mb-0">
             <Link

@@ -40,7 +40,7 @@ const Header = () => {
           : "bg-transparent",
       )}
     >
-      <div className="container-custom flex items-center justify-between">
+      <div className="container flex items-center justify-between">
         <Link
           to="/"
           className="font-display text-lg font-medium tracking-tight transition-opacity duration-300 hover:opacity-80"

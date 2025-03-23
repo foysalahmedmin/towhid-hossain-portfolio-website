@@ -42,7 +42,7 @@ const ContactSection = ({ className }: { className?: string }) => {
 
   return (
     <section id="contact" className={cn("py-24", className)}>
-      <div className="container-custom">
+      <div className="container">
         <div className="mx-auto mb-16 max-w-4xl text-center">
           <span className="mb-6 inline-block text-sm font-medium uppercase tracking-wider text-black/60">
             Contact

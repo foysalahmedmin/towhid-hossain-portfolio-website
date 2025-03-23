@@ -1,0 +1,12 @@
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in {
+    opacity: 0.25;
+    animation: fade-in linear forwards;
+  }
+
+  @keyframes fade-in {
+    to {
+      opacity: 1;
+    }
+  }
+}

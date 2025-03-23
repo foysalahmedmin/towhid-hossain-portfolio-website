@@ -25,7 +25,7 @@ const HeroSection = ({ className }: { className?: string }) => {
         className,
       )}
     >
-      <div className="container-custom relative z-10">
+      <div className="container relative z-10">
         <div
           ref={heroRef}
           className="page-transition-wrapper mx-auto max-w-4xl animate-fade-in text-center"
