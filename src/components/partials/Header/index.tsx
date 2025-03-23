@@ -36,8 +36,8 @@ const Header = () => {
       className={cn(
         "fixed left-0 right-0 top-0 z-50 py-4 transition-all duration-300 ease-in-out",
         isScrolled
-          ? "bg-white/90 shadow-sm backdrop-blur-md"
-          : "bg-transparent",
+          ? "bg-background/90 shadow-sm backdrop-blur-md"
+          : "bg-background/90 shadow-sm backdrop-blur-md",
       )}
     >
       <div className="container flex items-center justify-between">

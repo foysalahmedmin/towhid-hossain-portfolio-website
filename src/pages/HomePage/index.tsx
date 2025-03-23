@@ -89,16 +89,28 @@ const HomePage = () => {
 
   return (
     <main className="relative z-10 h-screen overflow-hidden">
-      {sections.map((section, index) => (
-        <Section
-          key={section.id}
-          item={section}
-          index={index}
-          currentIndex={currentIndex}
-          onNext={onNext}
-          onPrev={onPrev}
-        />
-      ))}
+      <>
+        {sections.map((section, index) => (
+          <Section
+            key={section.id}
+            item={section}
+            index={index}
+            currentIndex={currentIndex}
+            onNext={onNext}
+            onPrev={onPrev}
+          />
+        ))}
+      </>
+      <>
+        <div className="absolute left-8 top-1/2 h-1/2 w-1 -translate-y-1/2 overflow-hidden rounded-full bg-foreground/25">
+          <div
+            style={{
+              height: (currentIndex / (sections?.length - 1)) * 100 + "%",
+            }}
+            className="w-full bg-primary transition-all duration-300 ease-in-out"
+          ></div>
+        </div>
+      </>
     </main>
   );
 };
