@@ -13,13 +13,9 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "1rem",
-      screens: {
-        sm: "640px",
-        md: "768px",
-        lg: "1024px",
-        xl: "1280px",
-        "2xl": "1400px",
+      padding: {
+        DEFAULT: "1rem",
+        lg: "4rem",
       },
     },
     extend: {
@@ -90,8 +86,12 @@ export default {
           "100%": { transform: "translateX(0)", opacity: "1" },
         },
         scaleIn: {
-          "0%": { transform: "scale(0.9)", opacity: "0" },
-          "100%": { transform: "scale(1)", opacity: "1" },
+          "0%": { transform: "scale(0.9)" },
+          "100%": { transform: "scale(1)" },
+        },
+        scaleOut: {
+          "0%": { transform: "scale(1.1)" },
+          "100%": { transform: "scale(1)" },
         },
         pulse: {
           "0%, 100%": {
@@ -105,10 +105,11 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in": "fadeIn 0.6s ease-out forwards",
-        "slide-up": "slideUp 0.6s ease-out forwards",
-        "slide-right": "slideRight 0.6s ease-out forwards",
-        "scale-in": "scaleIn 0.6s ease-out forwards",
+        "fade-in": "fadeIn 0.8s ease-out forwards",
+        "slide-up": "slideUp 0.8s ease-out forwards",
+        "slide-right": "slideRight 0.8s ease-out forwards",
+        "scale-in": "scaleIn 0.8s ease-out forwards",
+        "scale-out": "scaleOut 0.8s ease-out forwards",
         "pulse-slow": "pulse 3s infinite",
       },
     },

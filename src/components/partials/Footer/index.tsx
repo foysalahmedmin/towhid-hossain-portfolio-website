@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="mt-24 snap-start border-t border-gray-100 py-12">
+    <footer className="mt-24 snap-start border-t border-muted/50 py-12">
       <div className="container">
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="mb-6 md:mb-0">
@@ -107,7 +107,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-gray-100 pt-8 text-center text-sm text-muted-foreground md:text-left">
+        <div className="mt-12 border-t border-muted/50 pt-8 text-center text-sm text-muted-foreground md:text-left">
           <p>© {currentYear} Picklu. All rights reserved.</p>
         </div>
       </div>

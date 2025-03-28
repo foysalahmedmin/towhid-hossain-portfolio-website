@@ -1,10 +1,10 @@
 .nav-link {
-  @apply relative text-sm font-medium tracking-wide transition-colors duration-300 ease-in-out hover:text-black;
+  @apply relative py-[2px] font-display text-sm tracking-tighter transition-colors duration-300 ease-in-out hover:text-current;
 }
 
 .nav-link::after {
   content: "";
-  @apply absolute bottom-0 left-0 h-[1px] w-0 bg-black transition-all duration-300 ease-in-out;
+  @apply absolute bottom-0 left-0 h-[1px] w-0 bg-current transition-all duration-300 ease-in-out;
 }
 
 .nav-link:hover::after {

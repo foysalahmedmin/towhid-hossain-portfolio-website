@@ -5,7 +5,7 @@
 @import "./styles/motion.css";
 
 .work-card {
-  @apply relative overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 ease-in-out hover:shadow-xl;
+  @apply relative overflow-hidden rounded-lg bg-card shadow-md transition-all duration-300 ease-in-out hover:shadow-xl;
 }
 
 .work-card-image {

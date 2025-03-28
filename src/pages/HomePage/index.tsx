@@ -1,23 +1,60 @@
-import AboutSection from "@/components/(home-page)/AboutSection";
-import ContactSection from "@/components/(home-page)/ContactSection";
-import HeroSection from "@/components/(home-page)/HeroSection";
-import WorkSection from "@/components/(home-page)/WorkSection";
+import About from "@/components/(home-page)/About";
+import Awards from "@/components/(home-page)/Awards";
+import CommercialSuccess from "@/components/(home-page)/CommercialSuccess";
+import Contact from "@/components/(home-page)/Contact";
+import GlobalEngagement from "@/components/(home-page)/GlobalEngagement";
+import Hero from "@/components/(home-page)/Hero";
+import LeadingRole from "@/components/(home-page)/LeadingRole";
+import News from "@/components/(home-page)/News";
+import Header from "@/components/partials/Header";
+import { SOCIAL } from "@/constants/social";
 import useScrollEdgeDetection from "@/hooks/ui/useScrollEdgeDetection";
 import useHash from "@/hooks/utils/useHash";
+import { SectionComponentProps, SectionItem } from "@/interfaces";
 import { cn } from "@/lib/utils";
 import React, { useRef } from "react";
 
-interface SectionItem {
-  id: string;
-  name: string;
-  element: React.ReactNode;
-}
-
 const sections: SectionItem[] = [
-  { id: "home", name: "Home", element: <HeroSection /> },
-  { id: "work", name: "Work", element: <WorkSection /> },
-  { id: "about", name: "About", element: <AboutSection /> },
-  { id: "contact", name: "Contact", element: <ContactSection /> },
+  {
+    id: "home",
+    name: "Home",
+    component: Hero,
+  },
+  {
+    id: "about",
+    name: "About",
+    component: About,
+  },
+  {
+    id: "commercial-success",
+    name: "Commercial Success",
+    component: CommercialSuccess,
+  },
+  {
+    id: "leading-role",
+    name: "Leading Role",
+    component: LeadingRole,
+  },
+  {
+    id: "awards",
+    name: "Awards",
+    component: Awards,
+  },
+  {
+    id: "global-engagement",
+    name: "Global Engagement",
+    component: GlobalEngagement,
+  },
+  {
+    id: "news",
+    name: "News",
+    component: News,
+  },
+  {
+    id: "contact",
+    name: "Contact",
+    component: Contact,
+  },
 ];
 
 interface SectionProps {
@@ -38,33 +75,30 @@ const Section = ({
   const sectionRef = useRef<HTMLElement>(null);
 
   useScrollEdgeDetection({
-    onTop: () => {
-      onPrev();
-    },
-    onBottom: () => {
-      onNext();
-    },
+    onTop: onPrev,
+    onBottom: onNext,
     ref: sectionRef,
   });
+
+  const Component = item.component as React.ElementType<SectionComponentProps>;
 
   return (
     <section
       id={item.id}
       ref={sectionRef}
       className={cn(
-        "absolute inset-0 h-full overflow-auto bg-background transition-all duration-700",
+        "group absolute inset-0 size-full overflow-y-auto overflow-x-hidden bg-background text-foreground transition-all duration-700",
+        { active: index === currentIndex },
         { "-translate-y-full": index !== currentIndex && index < currentIndex },
       )}
       style={{ zIndex: index * -1 }}
-      onTransitionEnd={(e) => {
-        if (index + 1 === currentIndex) {
-          e.currentTarget.scrollTop = e.currentTarget.scrollHeight;
-        } else if (currentIndex !== index) {
-          e.currentTarget.scrollTop = 0;
-        }
-      }}
     >
-      {item.element}
+      <Header
+        className={cn({
+          "dark fixed bg-transparent text-foreground": index === 0,
+        })}
+      />
+      <Component isActive={index === currentIndex} />
     </section>
   );
 };
@@ -72,8 +106,9 @@ const Section = ({
 const HomePage = () => {
   const { hash } = useHash();
 
-  const currentIndex =
-    sections.findIndex((section) => section.id === hash) || 0;
+  const currentIndex = hash
+    ? sections.findIndex((section) => section.id === hash) || 0
+    : 0;
 
   const onNext = () => {
     const nextIndex = currentIndex + 1;
@@ -88,7 +123,7 @@ const HomePage = () => {
   };
 
   return (
-    <main className="relative z-10 h-screen overflow-hidden">
+    <main className={cn("relative z-10 h-screen w-screen overflow-hidden")}>
       <>
         {sections.map((section, index) => (
           <Section
@@ -102,13 +137,52 @@ const HomePage = () => {
         ))}
       </>
       <>
-        <div className="absolute left-8 top-1/2 h-1/2 w-1 -translate-y-1/2 overflow-hidden rounded-full bg-foreground/25">
+        <div
+          className={cn(
+            "absolute left-4 top-1/2 hidden h-1/2 w-1 -translate-y-1/2 overflow-hidden rounded-full bg-foreground/25 lg:left-8 lg:block",
+            {
+              dark: currentIndex === 0,
+            },
+          )}
+        >
           <div
             style={{
-              height: (currentIndex / (sections?.length - 1)) * 100 + "%",
+              height: ((currentIndex + 1) / sections?.length) * 100 + "%",
             }}
-            className="w-full bg-primary transition-all duration-300 ease-in-out"
+            className="w-full bg-primary transition-all duration-500 ease-in-out"
           ></div>
+        </div>
+      </>
+      <>
+        <div
+          className={cn(
+            "absolute right-4 top-1/2 hidden h-1/2 -translate-y-1/2 flex-col items-center gap-4 overflow-hidden rounded-full lg:right-8 lg:flex",
+            {
+              dark: currentIndex === 0,
+            },
+          )}
+        >
+          <div className="w-1 flex-1 rounded-full bg-foreground/25" />
+          <div>
+            <ul className="flex flex-col gap-2">
+              {SOCIAL?.map((item, index) => (
+                <li
+                  key={index}
+                  className="flex items-center justify-center gap-2"
+                >
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex size-8 items-center justify-center rounded-full border border-current text-foreground transition-all duration-500 hover:border-primary hover:bg-primary/5 hover:text-primary"
+                  >
+                    <item.icon className="size-4" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="w-1 flex-1 rounded-full bg-foreground/25" />
         </div>
       </>
     </main>

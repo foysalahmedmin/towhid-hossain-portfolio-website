@@ -112,19 +112,19 @@ const EidAlFitrPage = () => {
           </div>
         </div>
       </div>
-      <section style={{ fontFamily: "Hind Siliguri" }} className="pb-14">
-        <div className="container mt-3">
-          <div className="mb-7">
-            <div className="mx-auto max-w-[50rem] text-center">
-              <p className="text-gradient mx-auto my-7 inline-block text-center text-xl font-bold text-black md:text-2xl">
-                ঈদ মোবারক।
-              </p>
-              <h3 className="mb-6 text-red-700">
-                ডাউনলোড করার পূর্বে নিচের যে কোনো একটি নমুনা চিহ্নিত করুন
-              </h3>
-            </div>
-            <div className="text-center">
-              <div className="flex flex-wrap justify-center gap-4 text-[4px] md:gap-6 md:text-[4px] lg:text-[6px] xl:text-[8px]">
+      <main style={{ fontFamily: "Hind Siliguri" }} className="h-screen">
+        <div className="container flex h-full flex-col pt-[4rem]">
+          <div className="mx-auto my-4 max-w-[50rem] text-center">
+            <p className="text-gradient mx-auto inline-block text-center text-xl font-bold text-black md:text-2xl">
+              ঈদ মোবারক।
+            </p>
+            <h3 className="text-red-500">
+              ডাউনলোড করার পূর্বে নিচের যে কোনো একটি নমুনা চিহ্নিত করুন
+            </h3>
+          </div>
+          <div className="flex-1 overflow-auto">
+            <div className="p-4 text-center">
+              <div className="flex flex-wrap justify-center gap-4 text-[4px] md:gap-6 md:text-[3px] lg:text-[4px] xl:text-[5.9px] 2xl:text-[4px]">
                 {bannerComponentsAndRefs.map((el, index) => (
                   <div
                     key={index}
@@ -147,9 +147,9 @@ const EidAlFitrPage = () => {
               </div>
             </div>
           </div>
-          <div className="shadow-center-2xl z-10 rounded-xl border-t-4 border-primary p-11">
-            <div className="mb-4">
-              <h3 className="text-2xl">
+          <div className="z-10 rounded-xl border-t-4 border-primary px-4 py-4">
+            <div className="mb-2">
+              <h3 className="text-xl">
                 ডিজিটাল ব্যানারের জন্য আপনার তথ্য দিন:
               </h3>
             </div>
@@ -158,7 +158,7 @@ const EidAlFitrPage = () => {
                 <div className="flex flex-col gap-3 md:flex-row">
                   <label
                     htmlFor="image"
-                    className="flex cursor-pointer items-center gap-2 rounded-md border border-primary bg-primary bg-opacity-5 px-6 py-[14px]"
+                    className="flex cursor-pointer items-center gap-2 rounded-md border border-primary bg-primary/5 px-6 py-[12px]"
                   >
                     <ImagePlus className="text-xl" />
                     <span className="opacity-50">আপনার ছবি যুক্ত করুন</span>
@@ -172,7 +172,7 @@ const EidAlFitrPage = () => {
                     />
                   </label>
                   <div className="grid flex-1 gap-4 md:grid-cols-2">
-                    <label className="flex items-center gap-2 rounded-md border border-primary bg-primary bg-opacity-5 px-4 py-[14px]">
+                    <label className="flex items-center gap-2 rounded-md border border-primary bg-primary/5 px-4 py-[12px]">
                       <label htmlFor="name">
                         <User className="text-xl" />
                       </label>
@@ -186,7 +186,7 @@ const EidAlFitrPage = () => {
                         placeholder="আপনার নাম"
                       />
                     </label>
-                    <label className="flex items-center gap-3 rounded-md border border-primary bg-primary bg-opacity-5 px-4 py-[14px]">
+                    <label className="flex items-center gap-3 rounded-md border border-primary bg-primary/5 px-4 py-[12px]">
                       <label htmlFor="name">
                         <FileBadge className="text-xl" />
                       </label>
@@ -209,7 +209,7 @@ const EidAlFitrPage = () => {
                       isLoading || (!isChrome && !isFirefox && !isSafari)
                     }
                     type="button"
-                    className="primary-btn mt-6 flex items-center justify-center gap-2"
+                    className="buttonborder border-primary"
                   >
                     <span>ডাউনলোড করুন</span>
                     <Download className="text-xl" />
@@ -225,7 +225,7 @@ const EidAlFitrPage = () => {
             </form>
           </div>
         </div>
-      </section>
+      </main>
     </>
   );
 };
