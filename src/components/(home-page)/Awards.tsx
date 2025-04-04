@@ -390,12 +390,14 @@ const Awards = ({ className, isActive }: SectionComponentProps) => {
           <p className="mb-8 text-xl opacity-90">
             Book Towhid Hossain for your next event or conference
           </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center rounded-full bg-card px-8 py-3 font-semibold text-primary transition-colors hover:bg-opacity-90"
-          >
-            Get in Touch
-          </a>
+          <div className="text-center">
+            <a
+              href="#contact"
+              className="button button-outline dark w-full lg:w-auto"
+            >
+              <span>Get in Touch</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>

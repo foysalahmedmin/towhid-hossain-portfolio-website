@@ -2,7 +2,7 @@ import globalPresence from "@/assets/data/globalPresence";
 import { useIntersectionObserver } from "@/hooks/ui/useIntersectionObserver";
 import { SectionComponentProps } from "@/interfaces";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Calendar, CheckCircle, MapPin, Users } from "lucide-react";
+import { Calendar, CheckCircle, MapPin, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import HeroSection from "../partials/Sections/HeroSection";
 
@@ -324,12 +324,14 @@ const GlobalEngagement = ({ className, isActive }: SectionComponentProps) => {
             Connect with us to explore international business opportunities and
             strategic partnerships
           </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center rounded-full bg-card px-8 py-3 font-semibold text-primary transition-colors hover:bg-opacity-90"
-          >
-            Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
-          </a>
+          <div className="text-center">
+            <a
+              href="#contact"
+              className="button button-outline dark w-full lg:w-auto"
+            >
+              <span>Get in Touch</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>

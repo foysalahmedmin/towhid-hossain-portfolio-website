@@ -1,7 +1,6 @@
 import useHash from "@/hooks/utils/useHash";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const Header = ({ className }: { className?: string }) => {
   const { hash } = useHash();
@@ -57,13 +56,13 @@ const Header = ({ className }: { className?: string }) => {
         )}
       >
         <div className="flex h-full items-center justify-between px-8">
-          <Link
-            to="/"
+          <a
+            href="/#home"
             className="font-display text-xl font-medium tracking-tight transition-opacity duration-300 hover:opacity-80"
             aria-label="Home"
           >
             Towhid<span className="text-primary">.</span>
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="container hidden flex-1 items-center gap-4 px-0 lg:flex lg:px-16">
@@ -81,13 +80,6 @@ const Header = ({ className }: { className?: string }) => {
             ))}
           </nav>
           <div className="flex items-center gap-4">
-            <a
-              href="/banner/eid-al-fitr"
-              className="button button-outline h-8 whitespace-nowrap px-4"
-            >
-              Eid Mubarak
-            </a>
-
             {/* Mobile Menu Button */}
             <button
               className="flex flex-col space-y-1.5 focus:outline-none lg:hidden"
