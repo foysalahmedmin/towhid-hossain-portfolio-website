@@ -1,5 +1,3 @@
-import React from "react";
-
 const banners = [
   {
     name: "eid al fitr",
@@ -34,6 +32,8 @@ const banners = [
 ];
 
 const BannerPage = () => {
+  console.log("Banner Page");
+
   return <main></main>;
 };
 

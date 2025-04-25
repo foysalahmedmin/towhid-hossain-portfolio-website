@@ -25,7 +25,7 @@ const Hero = ({ className, isActive }: SectionComponentProps) => {
             "animate-scale-out": isActive,
           })}
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent lg:bg-gradient-to-l" />
+          <div className="absolute inset-0 bg-gradient-to-t from-muted via-muted/50 to-transparent lg:bg-gradient-to-l" />
         </div>
       </div>
 

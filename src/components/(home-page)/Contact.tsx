@@ -4,12 +4,10 @@ import {
   CheckCircle,
   Clock,
   Globe,
-  Linkedin,
   Mail,
   MapPin,
   Phone,
   Send,
-  Twitter,
   Users,
 } from "lucide-react";
 import React, { useState } from "react";
@@ -30,17 +28,19 @@ const Contact = ({ className, isActive }: SectionComponentProps) => {
     {
       icon: <Phone className="h-6 w-6" />,
       title: "Phone",
-      details: ["+1 (555) 123-4567", "+1 (555) 987-6543"],
+      details: ["+971 52 928 6636", "+880 1927 111 222"],
     },
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
-      details: ["contact@johnanderson.com", "speaking@johnanderson.com"],
+      details: ["towhid.hossain@fifo-tech.com", "towhid.virgo@gmail.com"],
     },
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Office",
-      details: ["123 Business Avenue", "New York, NY 10001"],
+      details: [
+        "92, Ali Bhaban, Lift 5 & 6, Kazi Nazrul Islam Avenue, Kawran Bazar, Dhaka",
+      ],
     },
     {
       icon: <Clock className="h-6 w-6" />,
@@ -124,32 +124,6 @@ const Contact = ({ className, isActive }: SectionComponentProps) => {
                     </div>
                   ))}
                 </div>
-
-                <div>
-                  <h3 className="mb-4 font-semibold">
-                    Connect on Social Media
-                  </h3>
-                  <div className="flex space-x-4">
-                    <a
-                      href="#"
-                      className="rounded-lg bg-muted/50 p-3 transition-colors hover:bg-primary/5"
-                    >
-                      <Linkedin className="text-muted-foregroundhover:text-primary h-6 w-6" />
-                    </a>
-                    <a
-                      href="#"
-                      className="rounded-lg bg-muted/50 p-3 transition-colors hover:bg-primary/5"
-                    >
-                      <Twitter className="text-muted-foregroundhover:text-primary h-6 w-6" />
-                    </a>
-                    <a
-                      href="mailto:contact@johnanderson.com"
-                      className="rounded-lg bg-muted/50 p-3 transition-colors hover:bg-primary/5"
-                    >
-                      <Mail className="text-muted-foregroundhover:text-primary h-6 w-6" />
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -169,9 +143,10 @@ const Contact = ({ className, isActive }: SectionComponentProps) => {
                       type="text"
                       id="name"
                       name="name"
+                      placeholder="Full Name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full rounded-lg border border-muted/75 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+                      className="h-10 w-full rounded-lg border px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
                       required
                     />
                   </div>
@@ -186,9 +161,10 @@ const Contact = ({ className, isActive }: SectionComponentProps) => {
                       type="email"
                       id="email"
                       name="email"
+                      placeholder="Email Address"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full rounded-lg border border-muted/75 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+                      className="h-10 w-full rounded-lg border px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
                       required
                     />
                   </div>
@@ -206,9 +182,10 @@ const Contact = ({ className, isActive }: SectionComponentProps) => {
                       type="text"
                       id="company"
                       name="company"
+                      placeholder="Company Name"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full rounded-lg border border-muted/75 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+                      className="h-10 w-full rounded-lg border px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
                   <div>
@@ -223,7 +200,7 @@ const Contact = ({ className, isActive }: SectionComponentProps) => {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full rounded-lg border border-muted/75 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+                      className="h-10 w-full rounded-lg border bg-transparent px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
                       required
                     >
                       <option value="">Select an inquiry type</option>
@@ -246,10 +223,11 @@ const Contact = ({ className, isActive }: SectionComponentProps) => {
                   <textarea
                     id="message"
                     name="message"
+                    placeholder="Message"
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
-                    className="w-full rounded-lg border border-muted/75 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+                    className="w-full rounded-lg border px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500"
                     required
                   ></textarea>
                 </div>

@@ -146,6 +146,34 @@ const News = ({ className, isActive }: SectionComponentProps) => {
           </div>
         </div>
 
+        <div>
+          {/* Categories */}
+          <div className="rounded-xl bg-card py-6 shadow-lg lg:hidden">
+            <h3 className="mb-6 px-6 text-xl font-semibold">Categories</h3>
+            <div className="space-y-3">
+              {categories.map((category, index) => (
+                <div
+                  key={index}
+                  onClick={() => setNewsTab(category?.name)}
+                  className={`flex cursor-pointer items-center justify-between px-6 py-2 ${
+                    newsTab === category?.name
+                      ? "bg-primary/25"
+                      : "hover:bg-muted/25"
+                  }`}
+                >
+                  <span className="flex items-start">
+                    <Tag className="mr-2 mt-[0.125rem] h-5 w-5 shrink-0 text-primary" />
+                    {category.name}
+                  </span>
+                  <span className="rounded-full bg-primary/5 px-2 py-1 text-sm text-primary">
+                    {category.count}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Main News Content */}
           <div className="lg:col-span-2">
@@ -226,7 +254,7 @@ const News = ({ className, isActive }: SectionComponentProps) => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* Categories */}
-            <div className="rounded-xl bg-card py-6 shadow-lg">
+            <div className="hidden rounded-xl bg-card py-6 shadow-lg lg:block">
               <h3 className="mb-6 px-6 text-xl font-semibold">Categories</h3>
               <div className="space-y-3">
                 {categories.map((category, index) => (
