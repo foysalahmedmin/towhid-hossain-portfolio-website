@@ -20,8 +20,8 @@ const About = ({ className }: SectionComponentProps) => {
 
   return (
     <div className={cn("py-24", className)}>
-      <div className="container">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="container flex w-full items-center">
+        <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div ref={setContentRef(0)} className="order-2 opacity-0 lg:order-1">
             <span className="mb-6 inline-block text-sm font-medium uppercase tracking-wider text-black/60">
               About Me

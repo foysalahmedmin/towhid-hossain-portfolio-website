@@ -20,17 +20,20 @@ const Hero = ({ className, isActive }: SectionComponentProps) => {
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div
-          style={{ backgroundImage: "url('/images/hero-banner.png')" }}
-          className={cn("absolute inset-0 bg-cover bg-[25%] bg-no-repeat", {
+          style={{
+            backgroundImage: "url('/images/hero-banner.png')",
+            backgroundPosition: "70% 90%",
+          }}
+          className={cn("absolute inset-0 bg-cover bg-no-repeat", {
             "animate-scale-out": isActive,
           })}
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-muted via-muted/50 to-transparent lg:bg-gradient-to-l" />
+          <div className="absolute inset-0 bg-gradient-to-t from-muted via-muted/50 to-transparent lg:bg-gradient-to-r" />
         </div>
       </div>
 
-      <div className="container relative z-10 py-24 text-right">
-        <div className="ml-auto max-w-2xl animate-fade-in space-y-12">
+      <div className="container relative z-10 py-24 text-left">
+        <div className="mr-auto max-w-2xl animate-fade-in space-y-12">
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
               <button
@@ -85,7 +88,7 @@ const Hero = ({ className, isActive }: SectionComponentProps) => {
               </p>
             </div>
             <div
-              className="flex justify-end space-x-4"
+              className="flex justify-start space-x-4"
               style={{ animationDelay: "0.3s" }}
             >
               <a href="/#about" className="button">

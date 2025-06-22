@@ -5,7 +5,6 @@ import {
   Clock,
   Globe,
   Mail,
-  MapPin,
   Phone,
   Send,
   Users,
@@ -33,20 +32,20 @@ const Contact = ({ className, isActive }: SectionComponentProps) => {
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
-      details: ["towhid.hossain@fifo-tech.com", "towhid.virgo@gmail.com"],
+      details: ["towhid.hossain@fifo-tech.com"],
     },
-    {
-      icon: <MapPin className="h-6 w-6" />,
-      title: "Office",
-      details: [
-        "92, Ali Bhaban, Lift 5 & 6, Kazi Nazrul Islam Avenue, Kawran Bazar, Dhaka",
-      ],
-    },
-    {
-      icon: <Clock className="h-6 w-6" />,
-      title: "Business Hours",
-      details: ["Mon - Fri: 9:00 AM - 6:00 PM", "EST (UTC-5)"],
-    },
+    // {
+    //   icon: <MapPin className="h-6 w-6" />,
+    //   title: "Office",
+    //   details: [
+    //     "92, Ali Bhaban, Lift 5 & 6, Kazi Nazrul Islam Avenue, Kawran Bazar, Dhaka",
+    //   ],
+    // },
+    // {
+    //   icon: <Clock className="h-6 w-6" />,
+    //   title: "Business Hours",
+    //   details: ["Mon - Fri: 9:00 AM - 6:00 PM", "EST (UTC-5)"],
+    // },
   ];
 
   const inquiryTypes = [
