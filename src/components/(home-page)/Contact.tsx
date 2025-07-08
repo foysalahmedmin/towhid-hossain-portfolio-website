@@ -1,4 +1,4 @@
-import { SectionComponentProps } from "@/interfaces";
+import type { SectionComponentProps } from "@/interfaces";
 import {
   AlertCircle,
   CheckCircle,
@@ -27,7 +27,7 @@ const Contact = ({ className, isActive }: SectionComponentProps) => {
     {
       icon: <Phone className="h-6 w-6" />,
       title: "Phone",
-      details: ["+971 52 928 6636", "+880 1927 111 222"],
+      details: ["+971 52 928 6636", "+880 1927 111 000"],
     },
     {
       icon: <Mail className="h-6 w-6" />,
