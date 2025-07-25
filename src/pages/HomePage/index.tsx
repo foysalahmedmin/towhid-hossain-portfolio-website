@@ -8,11 +8,11 @@ import LeadingRole from "@/components/(home-page)/LeadingRole";
 import News from "@/components/(home-page)/News";
 import Header from "@/components/partials/Header";
 import { SOCIAL } from "@/constants/social";
-import useScrollEdgeDetection from "@/hooks/ui/useScrollEdgeDetection";
+import usePageScroll from "@/hooks/ui/usePageScroll";
 import useHash from "@/hooks/utils/useHash";
-import { SectionComponentProps, SectionItem } from "@/interfaces";
+import type { SectionComponentProps, SectionItem } from "@/interfaces";
 import { cn } from "@/lib/utils";
-import React, { useRef } from "react";
+import React from "react";
 
 const sections: SectionItem[] = [
   {
@@ -72,12 +72,9 @@ const Section = ({
   onNext,
   onPrev,
 }: SectionProps) => {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useScrollEdgeDetection({
-    onTop: onPrev,
-    onBottom: onNext,
-    ref: sectionRef,
+  const { setRef } = usePageScroll({
+    onPrev,
+    onNext,
   });
 
   const Component = item.component as React.ElementType<SectionComponentProps>;
@@ -85,7 +82,7 @@ const Section = ({
   return (
     <section
       id={item.id}
-      ref={sectionRef}
+      ref={setRef(index)}
       className={cn(
         "group absolute inset-0 size-full overflow-y-auto overflow-x-hidden bg-background text-foreground transition-all duration-700",
         { active: index === currentIndex },
