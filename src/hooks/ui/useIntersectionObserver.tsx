@@ -16,7 +16,7 @@ type UseIntersectionObserver = {
 
 export const useIntersectionObserver = ({
   classNames,
-  options = { threshold: 0.1 },
+  options = { threshold: 0 },
   isToggle = true,
   isUnobservable = true,
   callback,
