@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
 
+const getCurrentHash = (): string =>
+  typeof window !== "undefined" ? window.location.hash.replace(/^#/, "") : "";
+
 const useHash = (): { hash: string } => {
-  const [hash, setHash] = useState<string>(
-    window.location.hash?.replace("#", "") || "",
-  );
+  const [hash, setHash] = useState<string>(getCurrentHash);
 
   useEffect(() => {
-    const handleHashChange = (): void => {
-      const hash = window.location.hash;
-      if (hash) {
-        const hashId = hash.replace("#", "");
-        setHash(hashId);
-      }
-    };
+    const updateHash = () => setHash(getCurrentHash());
 
-    window.addEventListener("hashchange", handleHashChange);
+    window.addEventListener("hashchange", updateHash);
+    window.addEventListener("popstate", updateHash);
+
     return () => {
-      window.removeEventListener("hashchange", handleHashChange);
+      window.removeEventListener("hashchange", updateHash);
+      window.removeEventListener("popstate", updateHash);
     };
   }, []);
 
